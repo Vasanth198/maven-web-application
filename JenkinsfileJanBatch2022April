@@ -2,6 +2,8 @@ node {
 		
 def mavenHome = tool name: "maven 3.8.5"
 
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([pollSCM('* * * * *')])])
+
 echo "Github Branch Name is : ${env.BRANCH_NAME} "
 echo "The node name is: ${env.NODE_NAME} "
 echo "The jo name is: ${env.JOB_NAME} "
