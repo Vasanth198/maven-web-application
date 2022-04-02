@@ -3,7 +3,6 @@ node {
 def mavenHome = tool name: "maven 3.8.5"
 
 echo "Github Branch Name is : ${env.BRANCH_NAME} "
-" ${env.TAG_TIMESTAMP} "
 		
 // Checkout Stage
 stage ('CheckoutCode'){
@@ -28,7 +27,7 @@ sh "$mavenHome/bin/mvn deploy"
 //Deploy app into tomcat server
 stage('DeployAppIntoTomcat'){
 sshagent(['bbcde0e6-583a-4584-920d-41a20f661c89']) {
-	sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@3.6.37.218:/opt/apache-tomcat-9.0.59/webapps"
+	sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@172.31.40.59:/opt/apache-tomcat-9.0.59/webapps"
 }
 }
 
