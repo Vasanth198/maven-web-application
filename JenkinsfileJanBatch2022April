@@ -68,7 +68,7 @@ try{
 catch(e){
 	currentBuild.result = "Failed"
 
-}Catch closing
+}//Catch closing
 
 finally{
 sendSlackNotifications(currentBuild.result)
