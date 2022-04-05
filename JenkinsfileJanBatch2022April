@@ -39,6 +39,7 @@ try{
 
 	// Checkout Stage
 	stage ('CheckoutCode'){
+	sendSlackNotifications('STARTED')
 		git branch: 'development', credentialsId: '480fb18b-cc3c-4381-9aaf-58f82ca235c6', url: 'https://github.com/Vasanth198/maven-web-application.git'
 	}
 		
